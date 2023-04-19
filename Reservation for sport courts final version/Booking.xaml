@@ -1,0 +1,76 @@
+﻿<Window x:Class="Reservation_for_sport_courts_final_version.Booking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sports Reservation" Height="450" Width="800">
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#462AD8" Offset="0"/>
+                <GradientStop Color="#DA34AE" Offset="0.75"/>
+                <GradientStop Color="#8A16C1" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1" Text="Sports Reservation" Foreground="White" FontWeight="Bold" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="19,0,0,0"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,20,20,20">
+                <TextBlock Text="Select sport:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
+
+                <ComboBox x:Name="SportComboBox" Margin="0,10">
+                    <ComboBoxItem Content="Soccer"/>
+                    <ComboBoxItem Content="Basketball"/>
+                    <ComboBoxItem Content="Badminton"/>
+                    <ComboBoxItem Content="Tennis"/>
+                    <ComboBoxItem Content="Swimming"/>
+                </ComboBox>
+
+                <TextBlock Text="Choose date:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
+                <DatePicker x:Name="BookingDatePicker" Margin="0,10"/>
+
+                <TextBlock Text="Choose time:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
+                <ComboBox x:Name="BookingTimePicker" Margin="0,10">
+                    <ComboBoxItem Content="08:00"/>
+                    <ComboBoxItem Content="09:00"/>
+                    <ComboBoxItem Content="10:00"/>
+                    <ComboBoxItem Content="11:00"/>
+                    <ComboBoxItem Content="12:00"/>
+                    <ComboBoxItem Content="13:00"/>
+                    <ComboBoxItem Content="14:00"/>
+                    <ComboBoxItem Content="15:00"/>
+                    <ComboBoxItem Content="16:00"/>
+                    <ComboBoxItem Content="17:00"/>
+                    <ComboBoxItem Content="18:00"/>
+                    <ComboBoxItem Content="19:00"/>
+                    <ComboBoxItem Content="20:00"/>
+                    <ComboBoxItem Content="21:00"/>
+                </ComboBox>
+
+                <TextBlock Text="Booking price:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
+                <TextBlock x:Name="BookingPriceTextBlock" FontWeight="Bold" FontSize="16" Margin="0,10" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="BookingSummaryTextBlock" Text="Booking Summary:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="20,20,20,20" Grid.ColumnSpan="3"/>
+
+            <TextBlock Text="Total price:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10,0,10"/>
+            <TextBlock x:Name="BookingTotalPriceTextBlock" FontWeight="Bold" FontSize="16" Margin="10,10,0,10" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="257" />
+            <Button x:Name="BookButton" Content="Book" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,331,20,20" Width="100" Click="BookButton_Click"/>
+        </Grid>
+    </Border>
+</Window>
+

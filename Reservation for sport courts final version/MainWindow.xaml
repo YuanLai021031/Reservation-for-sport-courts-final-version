@@ -1,0 +1,81 @@
+﻿<Window x:Class="WPFLoginRegisterDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login and Register" Height="450" Width="800">
+    <Border CornerRadius="10"                    
+            BorderThickness="2"
+            Opacity="0.95">
+
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#462AD8" Offset="0"/>
+                <GradientStop Color="#DA34AE" Offset="0.75"/>
+                <GradientStop Color="#8A16C1" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#060531" Offset="0"/>
+                <GradientStop Color="#1B1448" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="1" Grid.Row="1" Margin="20">
+                <TabControl SelectionChanged="TabControl_SelectionChanged">
+                    <TabControl.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                             <GradientStop Color="#462AD8" Offset="0"/>
+                             <GradientStop Color="#DA34AE" Offset="0.75"/>
+                             <GradientStop Color="#8A16C1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabControl.BorderBrush>
+                    <TabControl.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#060531" Offset="0"/>
+                            <GradientStop Color="#1B1448" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabControl.Background>
+                    <TabItem Header="Login">
+                        <StackPanel Margin="20">
+                            <Label Content="Username:" Foreground="White"/>
+                            <TextBox x:Name="txtLoginUsername" Margin="0,0,0,10"/>
+                            <Label Content="Password:" Foreground="White"/>
+                            <PasswordBox x:Name="txtLoginPassword" Margin="0,0,0,20"/>
+                            <Button x:Name="btnLogin" Content="Login" Width="100" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Register">
+                        <StackPanel Margin="20">
+                            <Label Content="Username:" Foreground="White"/>
+                            <TextBox x:Name="txtRegisterUsername" Margin="0,0,0,10"/>
+                            <Label Content="Password:" Foreground="White"/>
+                            <PasswordBox x:Name="txtRegisterPassword" Margin="0,0,0,10"/>
+                            <Label Content="Confirm Password:" Foreground="White"/>
+                            <PasswordBox x:Name="txtRegisterConfirmPassword" Margin="0,0,0,20"/>
+                            <Button x:Name="btnRegister" Content="Register" Width="100" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
+
+
+
+              
+
+
+
