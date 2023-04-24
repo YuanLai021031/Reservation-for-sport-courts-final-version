@@ -29,7 +29,7 @@
 
             <TextBlock Grid.Column="1" Text="Sports Reservation" Foreground="White" FontWeight="Bold" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="19,0,0,0"/>
 
-            <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,20,20,20">
+            <StackPanel Grid.Column="0" Margin="20,30,20,26" Grid.RowSpan="2">
                 <TextBlock Text="Select sport:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
 
                 <ComboBox x:Name="SportComboBox" Margin="0,10" SelectionChanged ="onLookupParameterChange">
@@ -41,27 +41,9 @@
 
                 <TextBlock Text="Choose date:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
                 <DatePicker x:Name="BookingDatePicker" Margin="0,10"/>
-
-                <TextBlock Text="Choose time:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
-                <ComboBox x:Name="BookingTimePicker" Margin="0,10">
-                    <ComboBoxItem Content="08:00"/>
-                    <ComboBoxItem Content="09:00"/>
-                    <ComboBoxItem Content="10:00"/>
-                    <ComboBoxItem Content="11:00"/>
-                    <ComboBoxItem Content="12:00"/>
-                    <ComboBoxItem Content="13:00"/>
-                    <ComboBoxItem Content="14:00"/>
-                    <ComboBoxItem Content="15:00"/>
-                    <ComboBoxItem Content="16:00"/>
-                    <ComboBoxItem Content="17:00"/>
-                    <ComboBoxItem Content="18:00"/>
-                    <ComboBoxItem Content="19:00"/>
-                    <ComboBoxItem Content="20:00"/>
-                    <ComboBoxItem Content="21:00"/>
-                </ComboBox>
-
-                <TextBlock Text="Booking price:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
-                <TextBlock x:Name="BookingPriceTextBlock" FontWeight="Bold" FontSize="16" Margin="0,10" />
+                <TextBlock Text="Total price:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="0,10"/>
+                <TextBlock x:Name="TotalRriceTextBlock" FontWeight="Bold" FontSize="16" Margin="0,10" />
+                <Button x:Name="BookButton" Content="Book" HorizontalAlignment="left" Margin="0,20" Width="100" Click="BookButton_Click" Height="23"/>
             </StackPanel>
 
             <TextBlock Grid.Row="1" Grid.Column="1" x:Name="BookingSummaryTextBlock" Text="Booking Summary:" Foreground="White" FontWeight="Bold" FontSize="16" Margin="20,20,20,20" Grid.ColumnSpan="3"/>
@@ -75,4 +57,3 @@
         </Grid>
     </Border>
 </Window>
-
