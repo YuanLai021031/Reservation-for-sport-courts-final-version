@@ -13,7 +13,6 @@
                 <GradientStop Color="#8A16C1" Offset="1"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
-
         <Border.Background>
             <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                 <GradientStop Color="#060531" Offset="0"/>
@@ -21,24 +20,24 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame x:Name="MainFrame"/>
             <StackPanel Grid.Column="1" Grid.Row="1" Margin="20">
                 <TabControl SelectionChanged="TabControl_SelectionChanged">
                     <TabControl.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                             <GradientStop Color="#462AD8" Offset="0"/>
-                             <GradientStop Color="#DA34AE" Offset="0.75"/>
-                             <GradientStop Color="#8A16C1" Offset="1"/>
+                            <GradientStop Color="#462AD8" Offset="0"/>
+                            <GradientStop Color="#DA34AE" Offset="0.75"/>
+                            <GradientStop Color="#8A16C1" Offset="1"/>
                         </LinearGradientBrush>
                     </TabControl.BorderBrush>
                     <TabControl.Background>
@@ -53,7 +52,7 @@
                             <TextBox x:Name="txtLoginUsername" Margin="0,0,0,10"/>
                             <Label Content="Password:" Foreground="White"/>
                             <PasswordBox x:Name="txtLoginPassword" Margin="0,0,0,20"/>
-                            <Button x:Name="btnLogin" Content="Login" Width="100" HorizontalAlignment="Right"/>
+                            <Button x:Name="btnLogin" Click="BtnLogin_Click" Content="Login" Width="100" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Register">
@@ -64,13 +63,14 @@
                             <PasswordBox x:Name="txtRegisterPassword" Margin="0,0,0,10"/>
                             <Label Content="Confirm Password:" Foreground="White"/>
                             <PasswordBox x:Name="txtRegisterConfirmPassword" Margin="0,0,0,20"/>
-                            <Button x:Name="btnRegister" Content="Register" Width="100" HorizontalAlignment="Right"/>
+                            <Button x:Name="btnRegister" Click="BtnRegister_Click" Content="Register" Width="100" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
             </StackPanel>
         </Grid>
     </Border>
+    
 </Window>
 
 

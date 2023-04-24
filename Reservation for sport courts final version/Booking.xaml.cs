@@ -31,6 +31,7 @@ namespace Reservation_for_sport_courts_final_version
         private ReservationCollection reservationCollection;
         private DateTime date;
         private string selectedItem;
+        private int totalPrice = 0;
         
         public Booking()
         {
@@ -121,9 +122,10 @@ namespace Reservation_for_sport_courts_final_version
                         courtId = id,
                         hour = hour,
                         isSelected = false,
-                        price = $"{random.Next(100, 999)}",
+                        price = $"{random.Next(10, 20)}",
                         isReserved = random.Next(0, 100) > 50 ? true : false
                     };
+                    if (slotCell.isReserved) slotCell.price = "";
                     hoursAndDetail.Add(slotCell);
                 }
             }
@@ -185,11 +187,18 @@ namespace Reservation_for_sport_courts_final_version
                         cell.isSelected = !cell.isSelected;
                         if (cell.isSelected)
                         {
+                            totalPrice += int.Parse(cell.price);
                             tb.Background = Brushes.LightBlue;
                         } else
                         {
+                            totalPrice -= int.Parse(cell.price);
                             tb.Background = Brushes.Transparent;
                         }
+                        TotalRriceTextBlock.Text = totalPrice == 0 ? "" : totalPrice.ToString();
+                        TotalRriceTextBlock.FontSize = 24; 
+                        TotalRriceTextBlock.Foreground = Brushes.White; 
+                        TotalRriceTextBlock.FontWeight = FontWeights.Bold; 
+                        TotalRriceTextBlock.TextAlignment = TextAlignment.Center;
                     }));
 
                 column.CellStyle = new Style(typeof(DataGridCell));
@@ -206,62 +215,7 @@ namespace Reservation_for_sport_courts_final_version
                 column.CellTemplate = new DataTemplate() { VisualTree = factory };
                 BookingTable.Columns.Add(column);
             }
-            BookingTable.ItemsSource = items;
-
-            /* foreach (string name in data[0].slots.Keys)
-                 {
-                     Console.WriteLine(string.Format("slots[{0}].price", name));
-                     Console.WriteLine(data[0].slots[name].price);
-                     DataGridTemplateColumn column = new DataGridTemplateColumn();
-                     column.Header = name;
-                     DataTemplate cellTemplate = new DataTemplate();
-                     FrameworkElementFactory factory = new FrameworkElementFactory(typeof(TextBlock));
-
-                     factory.SetBinding(TextBlock.DataContextProperty, new Binding { Source = data[0].slots[name] });
-                     factory.SetBinding(TextBlock.TextProperty, new Binding("price"));
-                     factory.SetValue(TextBlock.BackgroundProperty, Brushes.Transparent);
-                     factory.AddHandler(TextBlock.MouseLeftButtonDownEvent, new MouseButtonEventHandler((sender, e) =>
-                     {
-                         var clickedCellData = ((FrameworkElement)sender).DataContext as SlotCell;
-                         Console.WriteLine(clickedCellData.price + " + " + clickedCellData.isReserved);
-                     }));
-                     cellTemplate.VisualTree = factory;
-                     column.CellTemplate = cellTemplate;
-                     column.CellStyle = new Style(typeof(DataGridCell));
-                     column.CellStyle.Setters.Add(new Setter(
-                         DataGridCell.BackgroundProperty,
-                         Brushes.Transparent
-                     ));
-
-                     Trigger whenSelectedTrigger = new Trigger
-                     {
-                         Property = DataGridCell.IsSelectedProperty,
-                         Value = true
-                     };
-                     whenSelectedTrigger.Setters.Add(new Setter(
-                         DataGridCell.BackgroundProperty,
-                         (SolidColorBrush)(new BrushConverter().ConvertFrom("#40FF00"))
-                     ));
-                     column.CellStyle.Triggers.Add(whenSelectedTrigger);
-
-                     DataTrigger isReservedTrigger = new DataTrigger()
-                     {
-                         Binding = new Binding(string.Format("slots[{0}].isReserved", name)),
-                         Value = true
-                     };
-                     isReservedTrigger.Setters.Add(new Setter(
-                         DataGridCell.BackgroundProperty,
-                         Brushes.Gray
-                     ));
-                     column.CellStyle.Triggers.Add(isReservedTrigger);
-                     BookingTable.Columns.Add(column);
-                 }*/
-        }
-
-        private void OnTextBlockLoaded(object sender, RoutedEventArgs e)
-        {
-            var textBlock = sender as TextBlock;
-            // Perform actions on the loaded TextBlock
+            BookingTable.ItemsSource = items;           
         }
     }
     }
